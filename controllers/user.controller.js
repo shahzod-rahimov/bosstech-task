@@ -6,13 +6,28 @@ require("dotenv").config();
 
 async function getAll(req, res) {
   try {
-    const users = await User.find({});
+    const page = +req.query.page || 1;
+    const itemsPerPage = 10;
+
+    const users = await User.find({})
+      .sort({ createdAt: "desc" })
+      .skip((page - 1) * itemsPerPage)
+      .limit(itemsPerPage);
+
+    const totalCount = await User.countDocuments().exec();
 
     if (!users.length) {
       return ApiError.notFound(res, { friendlyMsg: "Not Found" });
     }
 
-    res.ok(200, users);
+    res.ok(200, {
+      records: users,
+      pagination: {
+        currentPage: page,
+        totalPages: Math.ceil(totalCount / itemsPerPage),
+        totalCount,
+      },
+    });
   } catch (error) {
     ApiError.internal(res, {
       message: error,

@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
-app.use(routes);
+app.use("/api/v1/", routes);
 
 async function start() {
   try {

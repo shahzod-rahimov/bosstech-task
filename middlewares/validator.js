@@ -1,6 +1,6 @@
 const Validators = require("../validations");
-
 module.exports = function (validator) {
+  
   if (!Validators.hasOwnProperty(validator))
     throw new Error(`'${validator}' validator is not exist`);
 
@@ -16,6 +16,7 @@ module.exports = function (validator) {
           friendlyMsg: "Validation error",
         });
       }
+
       return res.error(500, {
         friendlyMsg: "Internal error",
       });

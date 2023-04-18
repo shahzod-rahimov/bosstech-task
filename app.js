@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const routes = require("./routes/index.routes");
 
 require("dotenv").config();
@@ -9,9 +10,10 @@ const app = express();
 const PORT = process.env.PORT;
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(cors());
 
-app.use(routes)
+app.use(routes);
 
 async function start() {
   try {

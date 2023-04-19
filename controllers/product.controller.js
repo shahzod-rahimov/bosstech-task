@@ -48,7 +48,7 @@ async function getByID(req, res) {
 
 async function createProduct(req, res) {
   try {
-    const product = await Products.create(req.body);
+    const product = await Products.create({ ...req.body, image: req.photo });
 
     res.ok(201, product);
   } catch (error) {
@@ -61,14 +61,19 @@ async function createProduct(req, res) {
 
 async function updateProduct(req, res) {
   try {
-    const product = await Products.findByIdAndUpdate(req.params.id, req.body, {
+    const data = { ...req.body };
+
+    if (req.photo) {
+      data.image = req.photo;
+    }
+
+    const product = await Products.findByIdAndUpdate(req.params.id, data, {
       new: true,
     });
 
     if (!product) {
       return ApiError.notFound(res, { friendlyMsg: "Not Found" });
     }
-
     res.ok(200, product);
   } catch (error) {
     ApiError.internal(res, {

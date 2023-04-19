@@ -12,6 +12,7 @@ const {
 const handleValidationErrors = require("../middlewares/handleValidationErrors");
 const Validator = require("../middlewares/validator");
 const { body, param, query } = require("express-validator");
+const { fileUpload } = require("../services/FileService");
 const router = Router();
 
 router.get(
@@ -33,7 +34,14 @@ router.post("/", Validator("user"), createUser);
 
 router.patch(
   "/:id",
-  [param("id").isMongoId().withMessage("Invalid ID"), handleValidationErrors],
+  fileUpload.single("image"),
+  [
+    param("id").isMongoId().withMessage("Invalid ID"),
+    body("full_name").optional().isString(),
+    body("email").optional().isEmail(),
+    body("phone_number").optional().isMobilePhone("uz-UZ"),
+    handleValidationErrors,
+  ],
   updateUser
 );
 
@@ -45,14 +53,21 @@ router.delete(
 
 router.post(
   "/auth/signup",
+  fileUpload.single("image"),
   [
     body("full_name").isString(),
     body("email").isEmail(),
     body("phone_number").isMobilePhone("uz-UZ"),
-    body("password").isLength({ min: 6 }),
+    body("password")
+      .isStrongPassword({
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+      })
+      .withMessage("Password is not strong"),
     handleValidationErrors,
   ],
-  Validator("user"),
   signup
 );
 

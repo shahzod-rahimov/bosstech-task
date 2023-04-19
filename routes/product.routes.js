@@ -8,6 +8,7 @@ const {
   removeProduct,
 } = require("../controllers/product.controller");
 const { query, param } = require("express-validator");
+const { fileUpload } = require("../services/FileService");
 const handleValidationErrors = require("../middlewares/handleValidationErrors");
 
 const router = Router();
@@ -27,12 +28,18 @@ router.get(
   getByID
 );
 
-router.post("/", Validator("product"), createProduct);
+router.post(
+  "/",
+  Validator("product"),
+  fileUpload.single("image"),
+  createProduct
+);
 
 router.patch(
   "/:id",
   [param("id").isMongoId().withMessage("Invalid ID"), handleValidationErrors],
   Validator("product"),
+  fileUpload.single("image"),
   updateProduct
 );
 

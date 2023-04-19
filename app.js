@@ -4,6 +4,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const routes = require("./routes/index.routes");
 const limiter = require("./middlewares/rate-limiter");
+const errorHandler = require("./middlewares/ErrorHandlingMiddleware");
 
 require("dotenv").config();
 
@@ -17,6 +18,7 @@ app.use(cors());
 // app.use(limiter);
 
 app.use("/api/v1/", routes);
+app.use(errorHandler);
 
 async function start() {
   try {

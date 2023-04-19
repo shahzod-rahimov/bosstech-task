@@ -11,6 +11,7 @@ const UserSchema = new Schema(
       max: [20, "Must be less than 20, got {VALUE}"],
     },
     refresh_token: { type: String },
+    image: { type: String },
   },
   {
     versionKey: false,

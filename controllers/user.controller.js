@@ -86,7 +86,13 @@ async function createUser(req, res) {
 
 async function updateUser(req, res) {
   try {
-    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+    const data = { ...req.body };
+
+    if (req.photo) {
+      data.image = req.photo;
+    }
+
+    const user = await User.findByIdAndUpdate(req.params.id, data, {
       new: true,
     });
 
@@ -140,7 +146,7 @@ async function signup(req, res) {
     }
     const password = await bcrypt.hash(req.body.password, 7);
 
-    const user = await User.create({ ...req.body, password });
+    const user = await User.create({ ...req.body, password, image: req.photo });
 
     const payload = {
       id: user._id,

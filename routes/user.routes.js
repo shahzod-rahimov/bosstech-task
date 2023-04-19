@@ -8,6 +8,7 @@ const {
   signup,
   signin,
   logout,
+  getUserImage,
 } = require("../controllers/user.controller");
 const handleValidationErrors = require("../middlewares/handleValidationErrors");
 const Validator = require("../middlewares/validator");
@@ -85,6 +86,12 @@ router.post(
   "/auth/logout",
   [body("refreshToken").isJWT(), handleValidationErrors],
   logout
+);
+
+router.get(
+  "/image/:id",
+  [param("id").isMongoId().withMessage("Invalid ID"), handleValidationErrors],
+  getUserImage
 );
 
 module.exports = router;

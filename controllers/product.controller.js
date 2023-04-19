@@ -1,5 +1,6 @@
 const ApiError = require("../errors/ApiError");
 const Products = require("../models/Product");
+const path = require("path");
 
 async function getAll(req, res) {
   try {
@@ -102,10 +103,35 @@ async function removeProduct(req, res) {
   }
 }
 
+async function getProductImage(req, res) {
+  try {
+    const product = await Products.findById(req.params.id);
+
+    if (!product) {
+      return ApiError.notFound(res, { friendlyMsg: "Not Found" });
+    }
+
+    if (!product.image) {
+      return ApiError.notFound(res, { friendlyMsg: "Image Not Found" });
+    }
+
+    const imageUrl =
+      path.join(__dirname, "..") + "/public/images/" + product.image;
+
+    res.sendFile(imageUrl);
+  } catch (error) {
+    ApiError.internal(res, {
+      message: error,
+      friendlyMsg: "Server Error",
+    });
+  }
+}
+
 module.exports = {
   getAll,
   getByID,
   createProduct,
   updateProduct,
   removeProduct,
+  getProductImage,
 };

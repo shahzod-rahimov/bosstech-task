@@ -6,6 +6,7 @@ const {
   createProduct,
   updateProduct,
   removeProduct,
+  getProductImage,
 } = require("../controllers/product.controller");
 const { query, param } = require("express-validator");
 const { fileUpload } = require("../services/FileService");
@@ -47,6 +48,12 @@ router.delete(
   "/:id",
   [param("id").isMongoId().withMessage("Invalid ID"), handleValidationErrors],
   removeProduct
+);
+
+router.get(
+  "/image/:id",
+  [param("id").isMongoId().withMessage("Invalid ID"), handleValidationErrors],
+  getProductImage
 );
 
 module.exports = router;

@@ -2,6 +2,7 @@ const User = require("../models/User");
 const ApiError = require("../errors/ApiError");
 const bcrypt = require("bcrypt");
 const jwt = require("../services/JwtService");
+const path = require("path");
 require("dotenv").config();
 
 async function getAll(req, res) {
@@ -244,6 +245,30 @@ async function logout(req, res) {
   }
 }
 
+async function getUserImage(req, res) {
+  try {
+    const user = await User.findById(req.params.id);
+
+    if (!user) {
+      return ApiError.notFound(res, { friendlyMsg: "Not Found" });
+    }
+
+    if (!user.image) {
+      return ApiError.notFound(res, { friendlyMsg: "Image Not Found" });
+    }
+
+    const imageUrl =
+      path.join(__dirname, "..") + "/public/images/" + user.image;
+
+    res.sendFile(imageUrl);
+  } catch (error) {
+    ApiError.internal(res, {
+      message: error,
+      friendlyMsg: "Server Error",
+    });
+  }
+}
+
 module.exports = {
   getAll,
   getByID,
@@ -253,4 +278,5 @@ module.exports = {
   signup,
   signin,
   logout,
+  getUserImage,
 };

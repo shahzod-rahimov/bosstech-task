@@ -1,5 +1,7 @@
 const Order = require("../models/Order");
+const User = require("../models/User");
 const ApiError = require("../errors/ApiError");
+const MailService = require("../services/MailService");
 
 async function getAll(req, res) {
   try {
@@ -64,6 +66,14 @@ async function createOrder(req, res) {
 
     await order.save();
 
+    const user = await User.findById(order.user_id);
+
+    await MailService.sendNotifWhenCreateOrder(
+      user.email,
+      statusToText(order.status),
+      order.createdAt
+    );
+
     const data = await Order.findById(order._id)
       .populate({ path: "user_id", select: "full_name email phone_number" })
       .populate({ path: "admin_id", select: "full_name email" })
@@ -81,4 +91,86 @@ async function createOrder(req, res) {
   }
 }
 
-module.exports = { getAll, getByID, createOrder };
+async function updateOrder(req, res) {
+  try {
+    const order = await Order.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+
+    if (!order) {
+      return ApiError.notFound(res, { friendlyMsg: "Not Found" });
+    }
+
+    res.ok(200, order);
+  } catch (error) {
+    ApiError.internal(res, {
+      message: error,
+      friendlyMsg: "Server Error",
+    });
+  }
+}
+
+async function deleteOrder(req, res) {
+  try {
+    const order = await Order.findByIdAndDelete(req.params.id);
+
+    if (!order) {
+      return ApiError.notFound(res, { friendlyMsg: "Not Found" });
+    }
+
+    res.ok(200, order);
+  } catch (error) {
+    ApiError.internal(res, {
+      message: error,
+      friendlyMsg: "Server Error",
+    });
+  }
+}
+
+async function changeStatus(req, res) {
+  try {
+    const { id, status } = req.query;
+
+    const order = await Order.findByIdAndUpdate(id, { status }, { new: true });
+
+    const user = await User.findById(order.user_id);
+
+    if (!order) {
+      return ApiError.notFound(res, { friendlyMsg: "Not Found" });
+    }
+
+    await MailService.sendNotifWhenChangeStatus(
+      user.email,
+      statusToText(order.status),
+      order.updatedAt
+    );
+
+    res.ok(200, order);
+  } catch (error) {
+    ApiError.internal(res, {
+      message: error,
+      friendlyMsg: "Server Error",
+    });
+  }
+}
+
+function statusToText(status) {
+  if (status == 1) {
+    return "Pending";
+  } else if (status == 2) {
+    return "Processing";
+  } else if (status == 3) {
+    return "Shipped";
+  } else if (status == 4) {
+    return "Delivered";
+  }
+}
+
+module.exports = {
+  getAll,
+  getByID,
+  createOrder,
+  updateOrder,
+  deleteOrder,
+  changeStatus,
+};

@@ -316,6 +316,23 @@
       }
     },
 
+    "/api/v1/users/image/{id}": {
+      "get": {
+        "x-swagger-router-controller": "home",
+        "tags": ["user"],
+        "description": "get user image",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+
     "/api/v1/products": {
       "post": {
         "x-swagger-router-controller": "home",
@@ -447,6 +464,23 @@
         "x-swagger-router-controller": "home",
         "tags": ["product"],
         "description": "delete product by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+
+    "/api/v1/products/image/{id}": {
+      "get": {
+        "x-swagger-router-controller": "home",
+        "tags": ["product"],
+        "description": "get product image",
         "parameters": [
           {
             "name": "id",

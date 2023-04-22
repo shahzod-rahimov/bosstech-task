@@ -12,6 +12,7 @@ const {
   signup,
   logout,
 } = require("../controllers/admin.controller");
+const adminPolice = require("../middlewares/adminPolice");
 const router = Router();
 
 router.get(
@@ -20,24 +21,28 @@ router.get(
     query("page").isNumeric().withMessage("Page query value must be a number"),
     handleValidationErrors,
   ],
+  adminPolice,
   getAll
 );
 
 router.get(
   "/:id",
   [param("id").isMongoId().withMessage("Invalid ID"), handleValidationErrors],
+  adminPolice,
   getByID
 );
 
 router.patch(
   "/:id",
   [param("id").isMongoId().withMessage("Invalid ID"), handleValidationErrors],
+  adminPolice,
   updateAdmin
 );
 
 router.delete(
   "/:id",
   [param("id").isMongoId().withMessage("Invalid ID"), handleValidationErrors],
+  adminPolice,
   removeAdmin
 );
 
@@ -56,6 +61,7 @@ router.post(
 router.post(
   "/auth/logout",
   [body("refreshToken").isJWT(), handleValidationErrors],
+  adminPolice,
   logout
 );
 

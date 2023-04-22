@@ -5,6 +5,8 @@ const cookieParser = require("cookie-parser");
 const routes = require("./routes/index.routes");
 const limiter = require("./middlewares/rate-limiter");
 const errorHandler = require("./middlewares/ErrorHandlingMiddleware");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
 
 require("dotenv").config();
 
@@ -18,6 +20,8 @@ app.use(cors());
 // app.use(limiter);
 
 app.use("/api/v1/", routes);
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.use(errorHandler);
 
 async function start() {

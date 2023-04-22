@@ -107,6 +107,7 @@ async function signup(req, res) {
 
     const payload = {
       id: admin._id,
+      is_admin: admin.is_admin,
     };
 
     const tokens = jwt.generateTokens(payload);
@@ -149,6 +150,7 @@ async function signin(req, res) {
 
     const payload = {
       id: admin._id,
+      is_admin: admin.is_admin,
     };
 
     const tokens = jwt.generateTokens(payload);

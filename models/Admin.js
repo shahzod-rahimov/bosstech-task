@@ -10,6 +10,7 @@ const AdminSchema = new Schema(
       max: [20, "Must be less than 20, got {VALUE}"],
     },
     refresh_token: { type: String },
+    is_admin: { type: Boolean, default: true },
   },
   {
     versionKey: false,

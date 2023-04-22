@@ -20,11 +20,7 @@ module.exports = async function (req, res, next) {
       return res.error(401, { message: "Access denied" });
     }
 
-    req.admin = decodedData;
-
-    if (!decodedData.is_admin) {
-      return res.error(401, { message: "Access denied! You are not admin" });
-    }
+    req.user = decodedData;
 
     next();
   } catch (error) {

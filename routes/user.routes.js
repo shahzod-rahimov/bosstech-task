@@ -12,12 +12,16 @@ const {
 } = require("../controllers/user.controller");
 const handleValidationErrors = require("../middlewares/handleValidationErrors");
 const Validator = require("../middlewares/validator");
-const { body, param, query } = require("express-validator");
+const { body, param, query, cookie } = require("express-validator");
 const { fileUpload } = require("../services/FileService");
+const adminPolice = require("../middlewares/adminPolice");
+const userPolice = require("../middlewares/userPolice");
+
 const router = Router();
 
 router.get(
   "/",
+  adminPolice,
   [
     query("page").isNumeric().withMessage("Page query value must be a number"),
     handleValidationErrors,
@@ -27,6 +31,7 @@ router.get(
 
 router.get(
   "/:id",
+  userPolice,
   [param("id").isMongoId().withMessage("Invalid ID"), handleValidationErrors],
   getByID
 );
@@ -35,6 +40,7 @@ router.post("/", Validator("user"), createUser);
 
 router.patch(
   "/:id",
+  userPolice,
   fileUpload.single("image"),
   [
     param("id").isMongoId().withMessage("Invalid ID"),
@@ -48,6 +54,7 @@ router.patch(
 
 router.delete(
   "/:id",
+  userPolice,
   [param("id").isMongoId().withMessage("Invalid ID"), handleValidationErrors],
   removeUser
 );
@@ -82,9 +89,9 @@ router.post(
   signin
 );
 
-router.post(
+router.get(
   "/auth/logout",
-  [body("refreshToken").isJWT(), handleValidationErrors],
+  [cookie("refreshToken").isJWT(), handleValidationErrors],
   logout
 );
 

@@ -698,36 +698,47 @@
       }
     },
 
-    "/order/filter": {
+    "/api/v1/orders/data/filter": {
       "get": {
         "x-swagger-router-controller": "home",
         "tags": ["order"],
-        "description": "filter order",
+        "description": "filter orders",
         "parameters": [
           {
-            "name": "customer",
+            "name": "page",
             "in": "query",
-            "description": "customer",
+            "description": "Filtered data page selection",
             "type": "string",
-            "value": ""
-          },
-          {
-            "name": "products",
-            "in": "query",
-            "description": "products",
-            "type": "string"
-          },
-          {
-            "name": "orderDate",
-            "in": "query",
-            "description": "order date",
-            "type": "string",
-            "value": ""
+            "default": "1"
           },
           {
             "name": "status",
             "in": "query",
-            "description": "order status",
+            "description": "Order status",
+            "type": "string"
+          },
+          {
+            "name": "dateFrom",
+            "in": "query",
+            "description": "Order date from",
+            "type": "string"
+          },
+          {
+            "name": "dateTo",
+            "in": "query",
+            "description": "Order date to",
+            "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "Filter by user_id",
+            "type": "string"
+          },
+          {
+            "name": "admin",
+            "in": "query",
+            "description": "Filter by admin_id",
             "type": "string"
           }
         ],

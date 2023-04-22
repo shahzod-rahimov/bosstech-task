@@ -166,6 +166,54 @@ function statusToText(status) {
   }
 }
 
+async function filterOrder(req, res) {
+  try {
+    const { user, admin, status, dateFrom, dateTo } = req.query;
+    const query = {};
+    const page = +req.query.page || 1;
+    const itemsPerPage = 10;
+
+    if (user) {
+      query.user_id = user;
+    }
+
+    if (admin) {
+      query.admin_id = admin;
+    }
+
+    if (status) {
+      query.status = status;
+    }
+
+    if (dateFrom && dateTo) {
+      query.createdAt = {
+        $gte: new Date(dateFrom),
+        $lt: new Date(dateTo),
+      };
+    }
+
+    const order = await Order.find(query)
+      .skip((page - 1) * itemsPerPage)
+      .limit(itemsPerPage);
+
+    const totalCount = await Order.countDocuments(query).exec();
+
+    res.ok(200, {
+      records: order,
+      pagination: {
+        currentPage: page,
+        totalPages: Math.ceil(totalCount / itemsPerPage),
+        totalCount,
+      },
+    });
+  } catch (error) {
+    ApiError.internal(res, {
+      message: error,
+      friendlyMsg: "Server Error",
+    });
+  }
+}
+
 module.exports = {
   getAll,
   getByID,
@@ -173,4 +221,5 @@ module.exports = {
   updateOrder,
   deleteOrder,
   changeStatus,
+  filterOrder,
 };

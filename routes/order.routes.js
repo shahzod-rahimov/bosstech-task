@@ -10,6 +10,7 @@ const {
   updateOrder,
   deleteOrder,
   changeStatus,
+  filterOrder,
 } = require("../controllers/order.controller");
 
 const router = Router();
@@ -51,6 +52,23 @@ router.post(
     handleValidationErrors,
   ],
   changeStatus
+);
+
+router.get(
+  "/data/filter",
+  [
+    query("page").isNumeric().withMessage("Page query value must be a number"),
+    query("user").isMongoId().optional(),
+    query("admin").isMongoId().optional(),
+    query("status")
+      .isIn(["1", "2", "3", "4"])
+      .withMessage("Status only contains this values [1, 2, 3, 4]")
+      .optional(),
+    query("dateFrom").isDate().optional(),
+    query("dateTo").isDate().optional(),
+    handleValidationErrors,
+  ],
+  filterOrder
 );
 
 module.exports = router;

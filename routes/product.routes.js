@@ -7,6 +7,7 @@ const {
   updateProduct,
   removeProduct,
   getProductImage,
+  filterProduct,
 } = require("../controllers/product.controller");
 const { query, param } = require("express-validator");
 const { fileUpload } = require("../services/FileService");
@@ -54,6 +55,20 @@ router.get(
   "/image/:id",
   [param("id").isMongoId().withMessage("Invalid ID"), handleValidationErrors],
   getProductImage
+);
+
+router.get(
+  "/data/filter",
+  [
+    query("page").isNumeric().withMessage("Page query value must be a number"),
+    query("name").isAlpha().optional(),
+    query("cheaper").contains("true").optional(),
+    query("expensive").contains("true").optional(),
+    query("dateFrom").isDate().optional(),
+    query("dateTo").isDate().optional(),
+    handleValidationErrors,
+  ],
+  filterProduct
 );
 
 module.exports = router;

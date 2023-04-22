@@ -127,6 +127,59 @@ async function getProductImage(req, res) {
   }
 }
 
+async function filterProduct(req, res) {
+  try {
+    const { dateFrom, dateTo, name, cheaper, expensive } = req.query;
+    const page = +req.query.page || 1;
+    const itemsPerPage = 10;
+    const query = {};
+    const sortQuery = {};
+
+    if (name) {
+      query.name = {
+        $regex: ".*" + name + ".*",
+        $options: "i",
+      };
+    }
+
+    if (dateFrom && dateTo) {
+      query.createdAt = {
+        $gte: new Date(dateFrom),
+        $lt: new Date(dateTo),
+      };
+    }
+
+    if (cheaper) {
+      sortQuery.price = "asc";
+    }
+
+    if (expensive) {
+      sortQuery.price = "desc";
+    }
+
+    const products = await Products.find(query)
+      .sort(sortQuery)
+      .skip((page - 1) * itemsPerPage)
+      .limit(itemsPerPage);
+
+    const totalCount = await Products.countDocuments(query).exec();
+
+    res.ok(200, {
+      records: products,
+      pagination: {
+        currentPage: page,
+        totalPages: Math.ceil(totalCount / itemsPerPage),
+        totalCount,
+      },
+    });
+  } catch (error) {
+    ApiError.internal(res, {
+      message: error,
+      friendlyMsg: "Server Error",
+    });
+  }
+}
+
 module.exports = {
   getAll,
   getByID,
@@ -134,4 +187,5 @@ module.exports = {
   updateProduct,
   removeProduct,
   getProductImage,
+  filterProduct,
 };

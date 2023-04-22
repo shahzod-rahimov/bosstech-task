@@ -493,38 +493,47 @@
       }
     },
 
-    "/product/filter": {
+    "/api/v1/products/data/filter": {
       "get": {
         "x-swagger-router-controller": "home",
         "tags": ["product"],
-        "description": "filter product",
-        "consumes": ["application/json"],
+        "description": "filter products",
         "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Filtered data page selection",
+            "type": "string",
+            "default": "1"
+          },
           {
             "name": "name",
             "in": "query",
             "description": "Product name",
-            "type": "string",
-            "value": "shaftoli"
+            "type": "string"
           },
           {
-            "name": "description",
+            "name": "dateFrom",
             "in": "query",
-            "description": "Product description",
-            "type": "string",
-            "value": "shaftoli"
+            "description": "Product date from",
+            "type": "string"
           },
           {
-            "name": "price",
+            "name": "dateTo",
             "in": "query",
-            "description": "Product price",
-            "type": "number",
-            "value": 1000
+            "description": "Product date to",
+            "type": "string"
           },
           {
-            "name": "createdBy",
+            "name": "cheaper",
             "in": "query",
-            "description": "Product creator",
+            "description": "Sort cheaper products",
+            "type": "string"
+          },
+          {
+            "name": "expensive",
+            "in": "query",
+            "description": "Sort expensive products",
             "type": "string"
           }
         ],

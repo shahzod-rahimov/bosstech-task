@@ -1,0 +1,135 @@
+{
+  level: 'info',
+  message: 'GET /api/v1/admin?page= 422 9ms',
+  metadata: {
+    meta: {
+      req: {
+        url: '/api/v1/admin?page=',
+        headers: {
+          authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2YwNWEwN2U2MWMwZTNjNTI2YjU2MCIsImlzX2FkbWluIjp0cnVlLCJpYXQiOjE2ODIxNzEyNTMsImV4cCI6MTY4NDc2MzI1M30.T6j6MbeslMkf9p69kfq3xyNuvlxF1S3FQ7Vt5RUC55w',
+          'user-agent': 'PostmanRuntime/7.32.2',
+          accept: '*/*',
+          'postman-token': 'a1d90523-fd5e-49d3-8f52-a438f7b42d66',
+          host: 'localhost:5000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDQ2NzI2ODFmMTQzN2RjMjM2ZDUwOCIsImlzX2FkbWluIjp0cnVlLCJpYXQiOjE2ODIyMDQ0NTUsImV4cCI6MTcxMzc2MjA1NX0.oHJdTQupkbhV-zVIarqdLJ8ab1DonbJn7ZsvmaJUpuM'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/api/v1/admin?page=',
+        query: { page: '' }
+      },
+      res: { statusCode: 422 },
+      responseTime: 9
+    }
+  }
+}
+{
+  level: 'info',
+  message: 'GET /api/v1/admin?page=1 200 258ms',
+  metadata: {
+    meta: {
+      req: {
+        url: '/api/v1/admin?page=1',
+        headers: {
+          authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2YwNWEwN2U2MWMwZTNjNTI2YjU2MCIsImlzX2FkbWluIjp0cnVlLCJpYXQiOjE2ODIxNzEyNTMsImV4cCI6MTY4NDc2MzI1M30.T6j6MbeslMkf9p69kfq3xyNuvlxF1S3FQ7Vt5RUC55w',
+          'user-agent': 'PostmanRuntime/7.32.2',
+          accept: '*/*',
+          'postman-token': '3ced174c-87fe-41fc-aa27-92f24b102ef6',
+          host: 'localhost:5000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDQ2NzI2ODFmMTQzN2RjMjM2ZDUwOCIsImlzX2FkbWluIjp0cnVlLCJpYXQiOjE2ODIyMDQ0NTUsImV4cCI6MTcxMzc2MjA1NX0.oHJdTQupkbhV-zVIarqdLJ8ab1DonbJn7ZsvmaJUpuM'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/api/v1/admin?page=1',
+        query: { page: '1' }
+      },
+      res: { statusCode: 200 },
+      responseTime: 258
+    }
+  }
+}
+{
+  level: 'info',
+  message: 'GET /api/v1/admin?page=1 200 857ms',
+  metadata: {
+    meta: {
+      req: {
+        url: '/api/v1/admin?page=1',
+        headers: {
+          authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2YwNWEwN2U2MWMwZTNjNTI2YjU2MCIsImlzX2FkbWluIjp0cnVlLCJpYXQiOjE2ODIxNzEyNTMsImV4cCI6MTY4NDc2MzI1M30.T6j6MbeslMkf9p69kfq3xyNuvlxF1S3FQ7Vt5RUC55w',
+          'user-agent': 'PostmanRuntime/7.32.2',
+          accept: '*/*',
+          'postman-token': '25e2f3c9-9cbc-4984-8007-34579a2ad477',
+          host: 'localhost:5000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDQ2NzI2ODFmMTQzN2RjMjM2ZDUwOCIsImlzX2FkbWluIjp0cnVlLCJpYXQiOjE2ODIyMDQ0NTUsImV4cCI6MTcxMzc2MjA1NX0.oHJdTQupkbhV-zVIarqdLJ8ab1DonbJn7ZsvmaJUpuM'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/api/v1/admin?page=1',
+        query: { page: '1' }
+      },
+      res: { statusCode: 200 },
+      responseTime: 857
+    }
+  }
+}
+{
+  level: 'info',
+  message: 'GET /api/v1/admin?page=q 422 8ms',
+  metadata: {
+    meta: {
+      req: {
+        url: '/api/v1/admin?page=q',
+        headers: {
+          authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2YwNWEwN2U2MWMwZTNjNTI2YjU2MCIsImlzX2FkbWluIjp0cnVlLCJpYXQiOjE2ODIxNzEyNTMsImV4cCI6MTY4NDc2MzI1M30.T6j6MbeslMkf9p69kfq3xyNuvlxF1S3FQ7Vt5RUC55w',
+          'user-agent': 'PostmanRuntime/7.32.2',
+          accept: '*/*',
+          'postman-token': '1af24218-ab06-49b8-987c-96e75a3a0ce3',
+          host: 'localhost:5000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDQ2NzI2ODFmMTQzN2RjMjM2ZDUwOCIsImlzX2FkbWluIjp0cnVlLCJpYXQiOjE2ODIyMDQ0NTUsImV4cCI6MTcxMzc2MjA1NX0.oHJdTQupkbhV-zVIarqdLJ8ab1DonbJn7ZsvmaJUpuM'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/api/v1/admin?page=q',
+        query: { page: 'q' }
+      },
+      res: { statusCode: 422 },
+      responseTime: 8
+    }
+  }
+}
+{
+  level: 'info',
+  message: 'GET /api/v1/admin?page=q 422 8ms',
+  metadata: {
+    meta: {
+      req: {
+        url: '/api/v1/admin?page=q',
+        headers: {
+          authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2YwNWEwN2U2MWMwZTNjNTI2YjU2MCIsImlzX2FkbWluIjp0cnVlLCJpYXQiOjE2ODIxNzEyNTMsImV4cCI6MTY4NDc2MzI1M30.T6j6MbeslMkf9p69kfq3xyNuvlxF1S3FQ7Vt5RUC55w',
+          'user-agent': 'PostmanRuntime/7.32.2',
+          accept: '*/*',
+          'postman-token': 'fca23272-b415-4179-9cb7-e7c34a45dd69',
+          host: 'localhost:5000',
+          'accept-encoding': 'gzip, deflate, br',
+          connection: 'keep-alive',
+          cookie: 'refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDQ2NzI2ODFmMTQzN2RjMjM2ZDUwOCIsImlzX2FkbWluIjp0cnVlLCJpYXQiOjE2ODIyMDQ0NTUsImV4cCI6MTcxMzc2MjA1NX0.oHJdTQupkbhV-zVIarqdLJ8ab1DonbJn7ZsvmaJUpuM'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/api/v1/admin?page=q',
+        query: { page: 'q' }
+      },
+      res: { statusCode: 422 },
+      responseTime: 8
+    }
+  }
+}

@@ -16166,3 +16166,175 @@
     }
   }
 }
+{
+  level: 'info',
+  message: 'GET / 200 7ms',
+  metadata: {
+    meta: {
+      req: {
+        url: '/',
+        headers: {
+          host: 'localhost:5000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Linux"',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,uz;q=0.8,ru;q=0.7',
+          cookie: 'SL_G_WPT_TO=en; SL_GWPT_Show_Hide_tmp=undefined; SL_wptGlobTipTmp=undefined; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2YwNWEwN2U2MWMwZTNjNTI2YjU2MCIsImlhdCI6MTY4MjEyMTIzMywiZXhwIjoxNzEzNjc4ODMzfQ.9RIk5-jzXlilaNY9AfjgmB153F-3hZSEeElawM6mvG4'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 7
+    }
+  }
+}
+{
+  level: 'info',
+  message: 'GET /stripe-card.js 200 2ms',
+  metadata: {
+    meta: {
+      req: {
+        url: '/stripe-card.js',
+        headers: {
+          host: 'localhost:5000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Linux"',
+          accept: '*/*',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'no-cors',
+          'sec-fetch-dest': 'script',
+          referer: 'http://localhost:5000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,uz;q=0.8,ru;q=0.7',
+          cookie: 'SL_G_WPT_TO=en; SL_GWPT_Show_Hide_tmp=undefined; SL_wptGlobTipTmp=undefined; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2YwNWEwN2U2MWMwZTNjNTI2YjU2MCIsImlhdCI6MTY4MjEyMTIzMywiZXhwIjoxNzEzNjc4ODMzfQ.9RIk5-jzXlilaNY9AfjgmB153F-3hZSEeElawM6mvG4'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/stripe-card.js',
+        query: {}
+      },
+      res: { statusCode: 200 },
+      responseTime: 2
+    }
+  }
+}
+{
+  level: 'info',
+  message: 'GET /favicon.ico 404 4ms',
+  metadata: {
+    meta: {
+      req: {
+        url: '/favicon.ico',
+        headers: {
+          host: 'localhost:5000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Linux"',
+          accept: 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'no-cors',
+          'sec-fetch-dest': 'image',
+          referer: 'http://localhost:5000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,uz;q=0.8,ru;q=0.7',
+          cookie: 'SL_G_WPT_TO=en; SL_GWPT_Show_Hide_tmp=undefined; SL_wptGlobTipTmp=undefined; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2YwNWEwN2U2MWMwZTNjNTI2YjU2MCIsImlhdCI6MTY4MjEyMTIzMywiZXhwIjoxNzEzNjc4ODMzfQ.9RIk5-jzXlilaNY9AfjgmB153F-3hZSEeElawM6mvG4'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/favicon.ico',
+        query: {}
+      },
+      res: { statusCode: 404 },
+      responseTime: 4
+    }
+  }
+}
+{
+  level: 'info',
+  message: 'GET / 304 2ms',
+  metadata: {
+    meta: {
+      req: {
+        url: '/',
+        headers: {
+          host: 'localhost:5000',
+          connection: 'keep-alive',
+          'cache-control': 'max-age=0',
+          'sec-ch-ua': '"Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Linux"',
+          'upgrade-insecure-requests': '1',
+          'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'sec-fetch-site': 'none',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-user': '?1',
+          'sec-fetch-dest': 'document',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,uz;q=0.8,ru;q=0.7',
+          cookie: 'SL_G_WPT_TO=en; SL_GWPT_Show_Hide_tmp=undefined; SL_wptGlobTipTmp=undefined; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2YwNWEwN2U2MWMwZTNjNTI2YjU2MCIsImlhdCI6MTY4MjEyMTIzMywiZXhwIjoxNzEzNjc4ODMzfQ.9RIk5-jzXlilaNY9AfjgmB153F-3hZSEeElawM6mvG4',
+          'if-none-match': 'W/"2ec9-187ac06cc3c"',
+          'if-modified-since': 'Sun, 23 Apr 2023 02:52:19 GMT'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/',
+        query: {}
+      },
+      res: { statusCode: 304 },
+      responseTime: 2
+    }
+  }
+}
+{
+  level: 'info',
+  message: 'GET /stripe-card.js 304 0ms',
+  metadata: {
+    meta: {
+      req: {
+        url: '/stripe-card.js',
+        headers: {
+          host: 'localhost:5000',
+          connection: 'keep-alive',
+          'sec-ch-ua': '"Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"',
+          'sec-ch-ua-mobile': '?0',
+          'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+          'sec-ch-ua-platform': '"Linux"',
+          accept: '*/*',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-mode': 'no-cors',
+          'sec-fetch-dest': 'script',
+          referer: 'http://localhost:5000/',
+          'accept-encoding': 'gzip, deflate, br',
+          'accept-language': 'en-US,en;q=0.9,uz;q=0.8,ru;q=0.7',
+          cookie: 'SL_G_WPT_TO=en; SL_GWPT_Show_Hide_tmp=undefined; SL_wptGlobTipTmp=undefined; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2YwNWEwN2U2MWMwZTNjNTI2YjU2MCIsImlhdCI6MTY4MjEyMTIzMywiZXhwIjoxNzEzNjc4ODMzfQ.9RIk5-jzXlilaNY9AfjgmB153F-3hZSEeElawM6mvG4',
+          'if-none-match': 'W/"3d4-187ac0930d1"',
+          'if-modified-since': 'Sun, 23 Apr 2023 02:54:56 GMT'
+        },
+        method: 'GET',
+        httpVersion: '1.1',
+        originalUrl: '/stripe-card.js',
+        query: {}
+      },
+      res: { statusCode: 304 },
+      responseTime: 0
+    }
+  }
+}

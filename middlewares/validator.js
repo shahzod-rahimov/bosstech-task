@@ -11,7 +11,7 @@ module.exports = function (validator) {
       next();
     } catch (error) {
       if (error.isJoi) {
-        return res.error(400, {
+        return res.error(422, {
           message: error.message,
           friendlyMsg: "Validation error",
         });

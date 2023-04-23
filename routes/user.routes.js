@@ -91,13 +91,15 @@ router.post(
 
 router.get(
   "/auth/logout",
-  [cookie("refreshToken").isJWT(), handleValidationErrors],
+  userPolice,
+  [(cookie("refreshToken").isJWT(), handleValidationErrors)],
   logout
 );
 
 router.get(
   "/image/:id",
-  [param("id").isMongoId().withMessage("Invalid ID"), handleValidationErrors],
+  userPolice,
+  [(param("id").isMongoId().withMessage("Invalid ID"), handleValidationErrors)],
   getUserImage
 );
 
